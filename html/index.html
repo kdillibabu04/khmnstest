@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/0a26282eb1.js" crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+        //   const searchButtonMobile = document.getElementById("search-button-mobile");
+           const searchBar = document.getElementById("search-bar");
+          const menuButton = document.getElementById("menu-button");
+          const navLinksContainer = document.getElementById("nav-links");
+          const navLinks = document.querySelectorAll(".nav-link");
+        
+          // Show/hide search bar
+        //   searchButtonMobile.addEventListener("click", function(event) {
+        //     event.stopPropagation();
+        //     if (searchBar.style.display === 'none' || searchBar.style.display === '') {
+        //       searchBar.style.display = 'flex';
+        //       searchButtonMobile.style.display = "none";
+        //     } else {
+        //       searchBar.style.display = 'none';
+        //       searchButtonMobile.style.display = "block";
+        //     }
+        //   });
+        
+          // Show/hide menu
+          menuButton.addEventListener("click", function(event) {
+            event.stopPropagation();
+            navLinksContainer.style.display = navLinksContainer.style.display === "block" ? "none" : "block";
+          });
+        
+          // Hide menu and searchbar if click anywhere on screen
+        //   document.addEventListener("click", function(event) {
+        //     if (!searchBar.contains(event.target) && window.innerWidth < 799) {
+        //       searchBar.style.display = "none";
+        //       searchButtonMobile.style.display = "block";
+        //     }
+        //     if (!navLinksContainer.contains(event.target) && window.innerWidth < 799) {
+        //       navLinksContainer.style.display = "none";
+        //     }
+        //   });
+        
+          // Add active class to clicked link
+          navLinks.forEach(function(navLink) {
+            navLink.addEventListener("click", function() {
+              // Remove "active" class from all links
+              navLinks.forEach(function(link) {
+                link.classList.remove("active");
+              });
+              // Add "active" class to the clicked link
+              this.classList.add("active");
+            });
+          });
+        
+          window.addEventListener("resize", function() {
+            searchBar.removeAttribute("style");
+            navLinksContainer.removeAttribute("style");
+          });
+        });
+        </script>
+            <style>
+        /* Variables */
+:root {
+    --blue-color: #271E30;
+    --orange-color: #FF200A;
+    --transition-time: 0.2s;
+  }
+  
+  /* Global Reset */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Image Styling */
+  img {
+    width: 100%;
+  }
+  
+  /* Container Styling */
+  .container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+  
+  @media (min-width: 1200px) and (max-width: 1441px) {
+    .container {
+      max-width: 1250px;
+      padding: 0 36px;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .container {
+      padding: 0 30px;  
+    }
+  }
+  
+  @media (max-width: 479px) {
+    .container {
+      padding: 0 20px;
+    }
+  }
+  
+  /* Navbar Styling */
+  .navbar {
+    background: url("https://raw.githubusercontent.com/Smit-Prajapati/QuickNews/main/images/world_background_orange.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center 65%;
+  }
+  
+  /* Navbar Top Styling */
+  .navbar-top {
+    background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+  }
+  
+  /* Logo Container Styling */
+  .logo-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+  }
+  
+  .logo {
+    width: 150px;
+  }
+  
+  /* Search Bar Styling */
+  .search-bar {
+    display: flex;
+    align-items: stretch;
+    width: 25%;
+    border-left: 5px solid var(--blue-color);
+  }
+  
+  .search-bar input {
+    padding: 8px;
+    width: 100%;
+    border: 2px solid transparent;
+    transition: all var(--transition-time) ease-in-out;
+  }
+  
+  .search-bar input:focus {
+    border: 2px solid var(--blue-color);
+    outline: none;
+  }
+  
+  .search-bar button {
+    background: var(--blue-color);
+    border: none;
+    padding: 8px;
+    transition: all var(--transition-time) ease-in-out;
+  }
+  
+  .search-bar button:hover {
+    background: darken(var(--blue-color), 5%);
+  }
+  
+  .search-bar button i {
+    color: white;
+    font-size: 20px;
+  }
+  
+  /* Nav Icons Styling */
+  .nav-icons {
+    justify-content: flex-end;
+    gap: 20px;
+    display: none;
+  }
+  
+  .nav-icons i {
+    color: white;
+    font-size: 25px;
+  }
+  
+  /* Navbar Bottom Styling */
+  .navbar-bottom {
+    background: rgba(39, 30, 48, 0.57);
+  }
+  
+  /* Nav Links Styling */
+  .nav-links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    color: white;
+    list-style-type: none;
+  }
+  
+  .nav-links li {
+    position: relative;
+    text-decoration: none;
+    font-weight: 900;
+    padding: 5px 0;
+    border: 5px solid transparent;
+    transition: all var(--transition-time) ease-in-out;
+  }
+  
+  .nav-links li a {
+    text-decoration: none;
+    color: white;
+  }
+  
+  .nav-links li::after {
+    content: "";
+    position: absolute;
+    top: calc(100% - 4px);
+    left: -5px;
+    width: 100%;
+    height: 0px;
+    border-top: 8px solid var(--orange-color);
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    z-index: -1;
+    transition: all var(--transition-time) ease-in-out;
+  }
+  
+  .nav-links li:hover {
+    cursor: pointer;
+  }
+  
+  .nav-links li:hover::after {
+    top: calc(100% + 5px);
+  }
+  
+  /* Responsive Styling */
+  @media (max-width: 750px) {
+    .navbar-top {
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      background: linear-gradient(90deg, rgba(255, 255, 255, 1) 10%, rgba(255, 255, 255, 0) 60%);
+    }
+  
+    .logo-container {
+      padding: 14px 0 12px 0;
+      flex-wrap: wrap;
+    }
+  
+    .logo {
+      width: 80px;
+    }
+  
+    .search-bar {
+      flex-basis: 100%;
+      width: 100%;  
+      border: 2px solid var(--blue-color); 
+      margin-top: 12px;
+      display: none;
+    }
+  
+    .nav-icons {
+      display: flex;
+    }
+  
+    .navbar-bottom .container {
+      padding: 0;
+    }
+  
+    .nav-links {
+      flex-direction: column;
+      gap: 0;
+      padding: 10px 0;
+      display: none;
+    }
+  
+    .nav-links li {
+      width: 100%;
+      text-align: center;
+      padding: 10px;
+    }
+  
+    .nav-links li::after {
+      display: none;
+    }
+  
+    .nav-links li:hover {
+      background: rgba(255, 32, 10, 0.5);
+    }
+  }
+  
+  .active::after {
+    content: "";
+    position: absolute;
+    top: calc(100% + 5px);
+    left: -5px;
+    width: 100%;
+    height: 0;
+    border-top: 8px solid var(--orange-color);
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    z-index: -1;
+    transition: all var(--transition-time) ease-in-out;
+  }
+  #applynow {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background-color 0.3s; /* Smooth transition for background-color change */
+}
+
+#applynow:hover {
+    background-color: white; /* Darker green */
+    color: black;
+}
+#cont1 {
+    background-color: orange; /* Light orange background */
+    padding: 20px; /* Add padding for spacing */
+}
+
+.left_info {
+    display: flex; /* Use flexbox to arrange elements */
+    justify-content: space-between; /* Space out the two lists */
+}
+
+.social-media,
+.contact-info {
+    list-style-type: none; /* Remove default bullet points */
+    margin: 0;
+    padding: 0;
+    display: flex; /* Display lists as flex containers */
+}
+
+.social-media li,
+.contact-info li {
+    margin-right: 10px; /* Add spacing between list items */
+}
+
+.social-media a,
+.contact-info a {
+    display: inline-block; /* Display icons/links as blocks */
+}
+
+.social-media a.facebook {
+    background-color: #3b5998; /* Facebook blue */
+    color: #fff; /* White text color */
+}
+
+.social-media a.twitter {
+    background-color: #1da1f2; /* Twitter blue */
+    color: #fff; /* White text color */
+}
+
+.social-media a.instagram {
+    background-color: #e4405f; /* Instagram pink */
+    color: #fff; /* White text color */
+}
+
+.social-media a.linkedin {
+    background-color: #0077b5; /* LinkedIn blue */
+    color: #fff; /* White text color */
+}
+
+.contact-info a {
+    color: #333; /* Text color */
+    text-decoration: none; /* Remove underline */
+}
+
+.contact-info a:hover {
+    text-decoration: underline; /* Add underline on hover */
+}
+
+.social-media a {
+    display: inline-block; /* Display icons as blocks for easier styling */
+    width: 30px; /* Set width for each icon */
+    height: 30px; /* Set height for each icon */
+    text-align: center; /* Center icon content */
+    line-height: 30px; /* Center icon vertically */
+    border-radius: 50%; /* Round the corners to create circular icons */
+}
+
+.contact-info a {
+    color: #fff; /* Text color - white */
+    text-decoration: none; /* Remove underline */
+}
+.contact-info a:hover {
+    text-decoration: underline; /* Add underline on hover */
+}
+/* Phone icon */
+.contact-info li .fa-phone {
+    background-color: #4caf50; /* Instagram green */
+    color: #fff; /* White text color */
+    padding: 5px; /* Add padding to the icon */
+    border-radius: 50%; /* Round the corners to create a circular icon */
+}
+
+/* Email icon */
+.contact-info li .fa-envelope {
+    background-color: #0077b5; /* LinkedIn blue */
+    color: #fff; /* White text color */
+    padding: 5px; /* Add padding to the icon */
+    border-radius: 50%; /* Round the corners to create a circular icon */
+}
+.social-media li a.whatsapp {
+    background-color: #25D366; /* WhatsApp background color */
+}
+
+.social-media li a.youtube {
+    background-color: #FF0000; /* YouTube background color */
+    color: white;
+}
+/* Define a media query for mobile devices */
+@media only screen and (max-width: 768px) {
+    .left_info {
+        flex-direction: column; /* Change flex direction to stack items vertically */
+        align-items: center; /* Align items to the center of the container */
+    }
+
+    .contact-info li {
+        margin-bottom: 10px; /* Add spacing between list items */
+        text-align: center; /* Center text within the container */
+    }
+
+    
+    /* Phone icon */
+.contact-info li .fa-phone {
+    background-color: #4caf50; /* Instagram green */
+    color: #fff; /* White text color */
+    padding: 5px; /* Add padding to the icon */
+    border-radius: 50%; /* Round the corners to create a circular icon */
+}
+
+/* Email icon */
+.contact-info li .fa-envelope {
+    background-color: #0077b5; /* LinkedIn blue */
+    color: #fff; /* White text color */
+    padding: 5px; /* Add padding to the icon */
+    border-radius: 50%; /* Round the corners to create a circular icon */
+}
+}
+
+    </style>
+</head>
+<body>
+    <!-- <div class="container">
+          <div class="row">
+              <div class="col-md-7 col-sm-12 left_info" >
+                  <ul>
+                      <li><i class="fa fa-mobile"></i><a href="https://wa.me/7676640942" target="_blank">+91 76766 40942</a></li>
+                      <li><i class="fa fa-envelope" aria-hidden="true"></i><a href="mailto:nexflareinfotech@gmail.com">nexflareinfotech@gmail.com</a></li>
+                  </ul>
+              </div>
+              
+          </div>
+      </div> -->
+      <div class="navbar" id="cont1">
+        <div class="row">
+            <div class="col-md-7 col-sm-12 left_info">
+                <ul class="social-media">
+                    <li><a href="#" class="facebook"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#" class="twitter"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#" class="instagram"><i class="fa fa-instagram"></i></a></li>
+                    <li><a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a></li>
+                    <li><a href="#" class="whatsapp"><i class="fa fa-whatsapp"></i></a></li><!-- Added WhatsApp -->
+                    <li><a href="#" class="youtube"><i class="fa fa-youtube"></i></a></li><!-- Added YouTube -->
+                </ul>
+                <ul class="contact-info">
+                    <li><i class="fa-solid fa-phone"></i><a href="tel:+917676640942">+91 76766 40942</a></li>
+                    <li><i class="fa-regular fa-envelope" aria-hidden="true"></i><a href="mailto:nexflareinfotech@gmail.com">nexflareinfotech@gmail.com</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+   
+    <nav class="navbar" id="navbar">
+        <div class="navbar-top">
+          <div class="container">
+            <div class="logo-container">
+              <div class="logo" style="display: inline-flex;  align-items: center;">
+                <img src="C:\Users\dillibabu\OneDrive\Desktop\khnms\images\khymnslogo.png" alt="khyn'smedabroad Logo">
+                <h2 style="text-align: center;" id="khny">𝕜ℍ𝕐ℕ'𝕤 𝕄𝕖𝕕𝔸𝕓𝕣𝕠𝕒𝕕</h2>
+              </div>
+              <div class="nav-icons">
+                <div class="search-icon" id="search-button-mobile">
+                  <!-- <i class="fa-solid fa-magnifying-glass"></i> -->
+                </div>
+                <div class="menu-icon" id="menu-button">
+                  <i class="fa-solid fa-bars"></i>
+                </div>
+              </div>
+              <div class="search-bar" id="search-bar">
+                <!-- <input type="text" id="search-text" placeholder="Search Topic">
+                <button id="search">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </button> -->
+              </div>
+              <div>
+                <input type="button" id="applynow" name="Apply Now" value="Apply Now">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="navbar-bottom">
+          <div class="container">
+            <ul class="nav-links" id="nav-links">
+              <li><a href="#" class="nav-link active">Home</a></li>
+              <li><a href="#" class="nav-link">Gallery</a></li>
+              <li><a href="#" class="nav-link">Eligibility Criteria</a></li>
+              <li><a href="#" class="nav-link">Admission Procedure</a></li>
+              <li><a href="#" class="nav-link">Studying and Living in Russia</a></li>
+              <li><a href="#" class="nav-link">Contact Us</a></li>
+              <li><a href="#" class="nav-link">About Us</a></li>
+            </ul>
+          </div>
+        </div>
+        </div>
+      </nav>
+</body>
+</html>
