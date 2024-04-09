@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>khyn's MedAbroad</title>
     <script src="https://kit.fontawesome.com/0a26282eb1.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="C:\Users\dillibabu\OneDrive\Desktop\khnms\images\khymnslogo.png" type="image/x-icon"/>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
         //   const searchButtonMobile = document.getElementById("search-button-mobile");
@@ -42,7 +42,14 @@
         //       navLinksContainer.style.display = "none";
         //     }
         //   });
-        
+        // Hide navbar when clicking on a navbar link
+  navLinks.forEach(function(navLink) {
+    navLink.addEventListener("click", function() {
+      if (window.innerWidth < 768) { // Check for mobile view
+        navLinksContainer.style.display = "none";
+      }
+    });
+  });
           // Add active class to clicked link
           navLinks.forEach(function(navLink) {
             navLink.addEventListener("click", function() {
@@ -319,7 +326,7 @@
     color: black;
 }
 #cont1 {
-    background-color: orange; /* Light orange background */
+    background-color: black; /* Light orange background */
     padding: 20px; /* Add padding for spacing */
 }
 
@@ -443,21 +450,60 @@
     border-radius: 50%; /* Round the corners to create a circular icon */
 }
 }
+/* Menu Icon Styling */
+.menu-icon {
+  position: relative;
+  left: 55px; /* Adjust the value as per your preference */
+}
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-top {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+#cont1 {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}@media (max-width: 750px) {
+  /* Other existing styles for mobile view */
+
+  /* Move Apply Now button before menu bar */
+  .nav-icons {
+    order: 1; /* Change the order */
+  }
+
+  /* Adjust the position of the menu icon */
+  .menu-icon {
+    position: relative;
+    left: 0; /* Adjust the value as needed */
+  }
+
+  /* Show menu icon and apply button in a row */
+  .nav-icons,
+  #applynow {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Adjust the gap as needed */
+  }
+
+  /* Adjust the position of the Apply Now button */
+  #applynow {
+    margin-left: auto; /* Push the Apply Now button to the right */
+    margin-left: 142px; /* Move the button 100 pixels to the right */
+  }
+}
+
 
     </style>
 </head>
 <body>
-    <!-- <div class="container">
-          <div class="row">
-              <div class="col-md-7 col-sm-12 left_info" >
-                  <ul>
-                      <li><i class="fa fa-mobile"></i><a href="https://wa.me/7676640942" target="_blank">+91 76766 40942</a></li>
-                      <li><i class="fa fa-envelope" aria-hidden="true"></i><a href="mailto:nexflareinfotech@gmail.com">nexflareinfotech@gmail.com</a></li>
-                  </ul>
-              </div>
-              
-          </div>
-      </div> -->
+   
       <div class="navbar" id="cont1">
         <div class="row">
             <div class="col-md-7 col-sm-12 left_info">
@@ -466,8 +512,8 @@
                     <li><a href="#" class="twitter"><i class="fa fa-twitter"></i></a></li>
                     <li><a href="#" class="instagram"><i class="fa fa-instagram"></i></a></li>
                     <li><a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a></li>
-                    <li><a href="#" class="whatsapp"><i class="fa fa-whatsapp"></i></a></li><!-- Added WhatsApp -->
-                    <li><a href="#" class="youtube"><i class="fa fa-youtube"></i></a></li><!-- Added YouTube -->
+                    <li><a href="#" class="whatsapp"><i class="fa fa-whatsapp"></i></a></li>
+                    <li><a href="#" class="youtube"><i class="fa fa-youtube"></i></a></li>
                 </ul>
                 <ul class="contact-info">
                     <li><i class="fa-solid fa-phone"></i><a href="tel:+917676640942">+91 76766 40942</a></li>
@@ -484,13 +530,13 @@
             <div class="logo-container">
               <div class="logo" style="display: inline-flex;  align-items: center;">
                 <img src="C:\Users\dillibabu\OneDrive\Desktop\khnms\images\khymnslogo.png" alt="khyn'smedabroad Logo">
-                <h2 style="text-align: center;" id="khny">𝕜ℍ𝕐ℕ'𝕤 𝕄𝕖𝕕𝔸𝕓𝕣𝕠𝕒𝕕</h2>
+                <h2 style="text-align: center;color: black;" id="khny">𝕜ℍ𝕐ℕ'𝕤 𝕄𝕖𝕕𝔸𝕓𝕣𝕠𝕒𝕕</h2>
               </div>
               <div class="nav-icons">
                 <div class="search-icon" id="search-button-mobile">
                   <!-- <i class="fa-solid fa-magnifying-glass"></i> -->
                 </div>
-                <div class="menu-icon" id="menu-button">
+                <div class="menu-icon" id="menu-button" style="position: relative;right: 50px;">
                   <i class="fa-solid fa-bars"></i>
                 </div>
               </div>
@@ -521,5 +567,99 @@
         </div>
         </div>
       </nav>
+
+      <section class="hero">
+        <div class="m-text">
+            <h1>Responsive Navbar</h1>
+            <p>With Html, CSS & JavaScript</p>
+        </div>
+    </section>
+    <section class="hero">
+        <div class="m-text">
+            <h1>Responsive Navbar</h1>
+            <p>With Html, CSS & JavaScript</p>
+        </div>
+    </section>
+    <section class="hero">
+        <div class="m-text">
+            <h1>Responsive Navbar</h1>
+            <p>With Html, CSS & JavaScript</p>
+        </div>
+    </section>
+    <section class="hero">
+        <div class="m-text">
+            <h1>Responsive Navbar</h1>
+            <p>With Html, CSS & JavaScript</p>
+        </div>
+    </section>
+    <section class="hero">
+        <div class="m-text">
+            <h1>Responsive Navbar</h1>
+            <p>With Html, CSS & JavaScript</p>
+        </div>
+    </section>
+    <section class="hero">
+        <div class="m-text">
+            <h1>Responsive Navbar</h1>
+            <p>With Html, CSS & JavaScript</p>
+        </div>
+    </section>
+    <section class="hero">
+        <div class="m-text">
+            <h1>Responsive Navbar</h1>
+            <p>With Html, CSS & JavaScript</p>
+        </div>
+    </section>
+    <section class="hero">
+        <div class="m-text">
+            <h1>Responsive Navbar</h1>
+            <p>With Html, CSS & JavaScript</p>
+        </div>
+    </section>
+    <section class="hero">
+        <div class="m-text">
+            <h1>Responsive Navbar</h1>
+            <p>With Html, CSS & JavaScript</p>
+        </div>
+    </section>
+    <section class="hero">
+        <div class="m-text">
+            <h1>Responsive Navbar</h1>
+            <p>With Html, CSS & JavaScript</p>
+        </div>
+    </section> <section class="hero">
+        <div class="m-text">
+            <h1>Responsive Navbar</h1>
+            <p>With Html, CSS & JavaScript</p>
+        </div>
+    </section> <section class="hero">
+        <div class="m-text">
+            <h1>Responsive Navbar</h1>
+            <p>With Html, CSS & JavaScript</p>
+        </div>
+    </section>
+</section> <section class="hero">
+    <div class="m-text">
+        <h1>Responsive Navbar</h1>
+        <p>With Html, CSS & JavaScript</p>
+    </div>
+</section>
+</section> <section class="hero">
+    <div class="m-text">
+        <h1>Responsive Navbar</h1>
+        <p>With Html, CSS & JavaScript</p>
+    </div>
+</section>
+</section> <section class="hero">
+    <div class="m-text">
+        <h1>Responsive Navbar</h1>
+        <p>With Html, CSS & JavaScript</p>
+    </div>
+</section> </section> <section class="hero">
+    <div class="m-text">
+        <h1>Responsive Navbar</h1>
+        <p>With Html, CSS & JavaScript</p>
+    </div>
+</section>
 </body>
 </html>
